@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="container mx-auto py-3 border-b border-slate-400">
+      <div class="w-full flex justify-end">
+        <button class="btn btn-primary" onclick="my_modal_3.showModal()">+ Add</button>
+      </div>
+
+    </header>
+    <div class="grid grid-cols-3 gap-10 p-5" id="loader"></div>
+    <div class="grid grid-cols-3 gap-10 p-5" id="container"></div>
+    <template id="templateCard">
+      <div
+        class="card bg-base-100 shadow-sm hover:border-blue-500 border-2 transition"
+      >
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            alt="shoes"
+          />
+        </figure>
+
+        <div class="card-body">
+          <h2 class="card-title"></h2>
+          <p></p>
+          <div class="card-actions justify-end">
+            <div class="tooltip" data-tip="Delete">
+
+              <button class="btn btn-error js-delete-button">
+                <svg class="text-white pointer-events-none" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 3.5C3 3.22386 3.22386 3 3.5 3H5H10H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H11V12C11 12.5523 10.5523 13 10 13H5C4.44772 13 4 12.5523 4 12V4L3.5 4C3.22386 4 3 3.77614 3 3.5ZM5 4H10V12H5V4Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+<!-- Loader -->
+        <template id="templateSkeleton">
+
+      <div
+        class="card bg-base-100 shadow-sm"
+      >
+        <figure>
+          <div class="skeleton h-36.75 w-62"></div>
+        </figure>
+
+        <div class="card-body">
+          <div class="skeleton h-6.75 w-full"></div>
+          <div class="flex gap-2">
+            <div class="skeleton h-5.25 w-full"></div>
+            <div class="skeleton h-5.25 w-full"></div>
+
+          </div>
+          <div class="card-actions justify-end">
+              <div class="skeleton h-10 w-22.75"></div>
+              
+            </div>
+          </div>
+        </div>
+    </template>
+
+    <!-- Toast -->
+     <template id="toastTemplate">
+      <div role="alert" class="alert alert-info">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+  </svg>
+  <span>New software update available.</span>
+</div>
+     </template>
+     <div class="fixed top-5 right-5 flex flex-col gap-3 z-999" id="toast"></div>
+
+    <!-- Modal -->
+     <!-- Add Modal -->
+     <dialog id="my_modal_3" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="text-lg font-bold">Янги мошина кушиш</h3>
+    <p class="py-4">Янги мошина кушиш учун малумотларни киритинг!</p>
+
+    <form class="flex flex-col gap-3" id="carAddForm">
+      <input name="name" type="text" placeholder="Мошина номини ёзинг" class="input w-full js-car-name" />
+      <input name="year" type="number" min="1990" max="2026" placeholder="Мошина йилини ёзинг" class="input w-full js-car-year" />
+      <div class="flex gap-2 js-car-color">
+        <strong>Ранг:</strong>
+        <input name="color" type="color"/>
+      </div>
+
+      <label class="input w-full js-car-power">
+  <input name="maxSpeed" type="number" min="10" class="grow w-full" placeholder="Мошина тезлиги" />km/h
+</label>
+<input name="horsepower" type="number" min="38" max="1000" placeholder="От кучини киритинг" class="input w-full" />
+<button id="submitButton" class="btn w-full">Тасдиқлаш</button>
+    </form>
+    
+  </div>
+</dialog>
+    <script src="./JS/app.js"></script>
+  </body>
+</html>
