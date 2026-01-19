@@ -10,7 +10,7 @@ const elCarForm = document.getElementById("carAddForm");
 const elThemes = document.getElementById("theme");
 const elEditForm = document.getElementById("carEditForm");
 const elEditModal = document.getElementById("editModal");
-
+const elAddBtn = document.getElementById("addBtn");
 
 //Dark and light modes
 
@@ -186,3 +186,13 @@ function add(data) {
       document.getElementById("my_modal_3").close();
     });
 }
+
+elAddBtn.addEventListener("click", () => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    location.href = "./login.html";
+  } else {
+    my_modal_3.showModal();
+  }
+});
